@@ -100,7 +100,7 @@ The result will be True as hear is precent to here in the alphabetical order.
 
 * Syntax:
 ```
-if condition Then
+If condition Then
  conditional code
 ElseIf condition Then
  conditional code
