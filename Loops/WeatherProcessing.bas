@@ -1,22 +1,40 @@
 Sub WeatherProcessing()
+' Variables
+    Dim NumInvalid As Double
+    Dim MaxSnw, snw, snwd As Double
+    Dim MaxDPreci As Double
+    Dim Hot As Double
+    Dim AHot As Double
+    Dim Cold As Double
+    Dim ACold As Double
+    
+' Loop Structure
 
-    Dim Temp As Double
-    Dim Rain As Double
-    Dim Wind As Double
+Dim yr As Integer
+Dim iniRow As Integer
+Dim iniCol As Integer
 
-    ' Take in the value from the worksheet.
-    Temp = ActiveSheet.Cells(4, 3).Value
-    Rain = ActiveSheet.Cells(5, 3).Value
-    Wind = ActiveSheet.Cells(6, 3).Value
+iniRow = 11
+iniCol = 1
 
-    If (Temp > 25 And Rain < 0.1 And Wind < 0.1) Then
-        ActiveSheet.Cells(3, 4).Value = "Sunny"
-    ElseIf (Temp > 20 And Rain < 0.2 And Wind < 0.2) Then
-        ActiveSheet.Cells(3, 4).Value = "Cloudy"
-    ElseIf (Temp > 15 And Rain < 0.3 And Wind < 0.3) Then
-        ActiveSheet.Cells(3, 4).Value = "Rainy"
+' Loop
+yr = ActiveSheet.Cells(iniRow,iniCol);
+While yr<2019
+    snw = ActiveSheet.Cells(iniRow, 5).Value
+    snwd = ActiveSheet.Cells(iniRow, 6).Value
+    If (snw==-9999 or snwd==-9999) Then
+        NumInvalid = NumInvalid + 1
+    
     Else
-        ActiveSheet.Cells(3, 4).Value = "Stormy"
+        if (MaxSnw<snw) then
+            MaxSnw = snw
+        End if
     End If
+
+    
+    
+
+
+    wend 
 
 End Sub
