@@ -109,3 +109,23 @@ Else
 End If
 ```
 
+# Loops
+* Conditional Based Reptition: **More Versatile** The identified actions are continued untill some event occurs that causes the algorithm to stop repeating.
+
+* Counter Based Repetition: The identified actions are repeated for a specific number of times determined prior to starting the repeatition.
+
+
+## For.... Next Loop
+
+**First Method**
+```
+For var = start to End Step Change
+   ....code to repeat....
+Next
+```
+**Second method**
+```
+For Each Item In Array
+   ....code to repeat....
+Next
+```
