@@ -150,3 +150,17 @@ ReDim Preserve ArrayName(N) as VariableType
    FunctionName = value to return
    
    end Function```
+
+***Several Options for writing Funtions***
+
+No parameters:
+`Function MyFunction() As Type`
+
+• One parameter:
+`Function MyFunction (var As Type) As Type`
+
+• Multiple parameters:
+`Function MyFunction(varl As Type, var2 As Type,..) As Type`
+
+• Array parameters:
+`Function MyFunction (ArrayVar() As Type) As Type`
