@@ -26,6 +26,7 @@ for col = 1 to 4 Step 1
     Do While (ActiveSheet.Cells(row, col) <> "" And count<16)
         SF = ActiveSheet.Cells(row, col).Value/ActiveSheet.Cells(7,7).Value
         ActiveSheet.Cells(row, col+10).Value = SF
+
         If (SF>1.2) Then 
         ActiveSheet.Cells(row, col+10).Interior.Color = RGB(255, 0, 0)
         
@@ -41,33 +42,12 @@ for col = 1 to 4 Step 1
         row = row + 1
     Loop
 
-End If  
+    if (count<11) Then
+        ActiveSheet.Range(Cells(6,col+10),Cells(20,col+10)).ClearContents
+        ActiveSheet.Cells(6, col+10).Value = "NMT"
+    End If  
+
+    col = col + 1
 
 Next
 
-' Looping through the teams
-If (cTeam1<11) Then 
-    ActiveSheet.Cells(6,11).Value = "NMT"
-Else
-    Do While (ActiveSheet.Cells(row, col) <> "" And count<16)
-
-        
-    Loop
-
-End If 
-
-
-If (cTeam2<11) Then 
-    ActiveSheet.Cells(6,12).Value = "NMT"
-Else
-
-End If 
-
-
-If (cTeam3<11) Then 
-    ActiveSheet.Cells(6,13).Value = "NMT"
-Else
-
-End If 
-
-End Sub
