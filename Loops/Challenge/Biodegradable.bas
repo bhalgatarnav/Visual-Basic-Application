@@ -1,4 +1,5 @@
 Sub Biodegradable()
+
 ' Initialising the Variables to use
 Dim cTeam1, cTeam2, cTeam3, count As Integer
 Dim row, col As Integer
@@ -10,44 +11,49 @@ ActiveSheet.Range("L6:L20").ClearContents
 ActiveSheet.Range("M6:M20").ClearContents
 
 ' Clearing the colour coding
-ActiveSheet.Range("B6:B25").Interior.Color = xlNone
-ActiveSheet.Range("C6:C25").Interior.Color = xlNone
-ActiveSheet.Range("D6:D25").Interior.Color = xlNone
+ActiveSheet.Range("K6:K25").Interior.Color = xlNone
+ActiveSheet.Range("L6:L25").Interior.Color = xlNone
+ActiveSheet.Range("M6:M25").Interior.Color = xlNone
 
 ' Count the number of enteries the team had entered:
-cTeam1 = WorksheetFunction.Count(Range("B6:B25"))
-cTeam2 = WorksheetFunction.Count(Range("C6:C25"))
-cTeam3 = WorksheetFunction.Count(Range("D6:D25"))
+cTeam1 = WorksheetFunction.count(Range("B6:B25"))
+cTeam2 = WorksheetFunction.count(Range("C6:C25"))
+cTeam3 = WorksheetFunction.count(Range("D6:D25"))
+count = 0
 
+
+For col = 2 To 4 Step 1
 row = 6
-col = 1
-for col = 1 to 4 Step 1
 
-    Do While (ActiveSheet.Cells(row, col) <> "" And count<16)
-        SF = ActiveSheet.Cells(row, col).Value/ActiveSheet.Cells(7,7).Value
-        ActiveSheet.Cells(row, col+10).Value = SF
+    Do While (ActiveSheet.Cells(row, col) <> "" And count < 16)
+        count = count + 1
+        SF = 0
+        SF = ActiveSheet.Cells(row, col).Value / ActiveSheet.Cells(7, 7).Value
+        ActiveSheet.Cells(row, col + 9).Value = SF
 
-        If (SF>1.2) Then 
-        ActiveSheet.Cells(row, col+10).Interior.Color = RGB(255, 0, 0)
+        If (SF > 1.2) Then
+        ActiveSheet.Cells(row, col + 9).Interior.Color = RGB(255, 0, 0)
         
-        Else If (SF<1) Then
-        ActiveSheet.Cells(row, col+10).Interior.Color = RGB(255, 255, 153)
+        ElseIf (SF < 1) Then
+        ActiveSheet.Cells(row, col + 9).Interior.Color = RGB(255, 255, 153)
         
         Else
-        ActiveSheet.Cells(row, col+10).Interior.Color = RGB(0, 255, 0)
+        ActiveSheet.Cells(row, col + 9).Interior.Color = RGB(0, 255, 0)
 
         End If
 
-        count = count + 1
+
         row = row + 1
     Loop
 
-    if (count<11) Then
-        ActiveSheet.Range(Cells(6,col+10),Cells(20,col+10)).ClearContents
-        ActiveSheet.Cells(6, col+10).Value = "NMT"
-    End If  
+    If (count < 11) Then
+        ActiveSheet.Range(Cells(6, col + 9), Cells(20, col + 9)).ClearContents
+        ActiveSheet.Cells(6, col + 9).Value = "NMT"
+    End If
 
     col = col + 1
 
 Next
 
+
+End Sub
