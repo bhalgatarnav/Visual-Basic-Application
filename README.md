@@ -198,6 +198,7 @@ End
 
 • Unlike functions in MATLAB and Python, a function in VBA can only return a single value or an array of values
 • To return a single value from a function, we use the syntax we've been using:
-Function MyFunction (parameters) As Type
+`Function MyFunction (parameters) As Type`
+
 • To return an array of values from a function, we need to specify the type of the function to be an array:
-Function MyFunction (parameters) As Type()
+`Function MyFunction (parameters) As Type()`
