@@ -129,3 +129,24 @@ For Each Item In Array
    ....code to repeat....
 Next
 ```
+
+
+## Initialization of Array
+
+```
+Dim ArrayName(N) as VariableType
+Dim 2DArray(R, C) as VariableType
+
+ReDim ArrayName(N) as VariableType
+ReDim Preserve ArrayName(N) as VariableType
+```
+
+
+
+## Functions in VBA
+
+```Function FunctionName(Parameter) As Type
+   function code
+   FunctionName = value to return
+   
+   end Function```
