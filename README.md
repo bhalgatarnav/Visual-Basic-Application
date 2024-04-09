@@ -149,9 +149,10 @@ ReDim Preserve ArrayName(N) as VariableType
    function code
    FunctionName = value to return
    
-   end Function```
+   end Function
+```
 
-***Several Options for writing Funtions***
+### **Options for writing Funtions**
 
 No parameters:
 `Function MyFunction() As Type`
@@ -165,10 +166,10 @@ No parameters:
 • Array parameters:
 `Function MyFunction (ArrayVar() As Type) As Type`
 
-*Parameters: Ranges of Cells
+### **Ranges of Cells**
 • As was mentioned previously, you can use a function that you've written either within a macro or within an Excel formula
 
-• The only change that needs to be made in writing the function to use it in an Excel formula is if you need to access a range of cells
+• The only change that needs to be made in writing the function to use it in an Excel formula is if you need to access a **range of cells**
 
 • If you need to access a single cell or several single cells, you simply create a parameter for each value needed:
 
@@ -192,3 +193,11 @@ Next
 Avg2 = Sum / Count
 End
 ```
+
+### **Returning Values**
+
+• Unlike functions in MATLAB and Python, a function in VBA can only return a single value or an array of values
+• To return a single value from a function, we use the syntax we've been using:
+Function MyFunction (parameters) As Type
+• To return an array of values from a function, we need to specify the type of the function to be an array:
+Function MyFunction (parameters) As Type()
