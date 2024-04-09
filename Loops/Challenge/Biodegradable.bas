@@ -23,6 +23,7 @@ count = 0
 
 
 For col = 2 To 4 Step 1
+count = 0
 row = 6
 
     Do While (ActiveSheet.Cells(row, col) <> "" And count < 16)
@@ -48,10 +49,9 @@ row = 6
 
     If (count < 11) Then
         ActiveSheet.Range(Cells(6, col + 9), Cells(20, col + 9)).ClearContents
+        ActiveSheet.Range(Cells(6, col + 9), Cells(20, col + 9)).Interior.Color = xlNone
         ActiveSheet.Cells(6, col + 9).Value = "NMT"
     End If
-
-    col = col + 1
 
 Next
 
