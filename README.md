@@ -164,3 +164,31 @@ No parameters:
 
 • Array parameters:
 `Function MyFunction (ArrayVar() As Type) As Type`
+
+*Parameters: Ranges of Cells
+• As was mentioned previously, you can use a function that you've written either within a macro or within an Excel formula
+
+• The only change that needs to be made in writing the function to use it in an Excel formula is if you need to access a range of cells
+
+• If you need to access a single cell or several single cells, you simply create a parameter for each value needed:
+
+`Function MyFunction (Celll As Type, Cell2 As Type,...) As Type`
+
+• If you need to access a range of cells, instead of specifying the parameter as an array, you specify the parameter as a range:
+
+`Function MyFunction(CellValues As Range) As Type`
+```
+Function Avg2 (v As Range) As Double
+Dim k As Integer
+Dim Sum As Double
+Dim Cell As Range
+Dim Count As Integer
+Sum = 0
+Count = 0
+For Each Cell In
+Sum = Sum + Cell.Value
+Count = Count + 1
+Next
+Avg2 = Sum / Count
+End
+```
