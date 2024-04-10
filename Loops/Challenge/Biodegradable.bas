@@ -26,10 +26,11 @@ For col = 2 To 4 Step 1
 count = 0
 row = 6
 
-    Do While (ActiveSheet.Cells(row, col) <> "" And count < 16)
+    Do While (ActiveSheet.Cells(row, col).Value <> "" And count <= 14)
         count = count + 1
         SF = 0
         SF = ActiveSheet.Cells(row, col).Value / ActiveSheet.Cells(7, 7).Value
+        SF = round(SF, 2) 
         ActiveSheet.Cells(row, col + 9).Value = SF
 
         If (SF > 1.2) Then
