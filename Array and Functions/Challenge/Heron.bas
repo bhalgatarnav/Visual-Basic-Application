@@ -11,8 +11,18 @@ Function Semi(s As Double) As Double
 End Function
 
 ' A function called “Area” to find the area of the triangle.
-Function Area(side As Double, semiP As Double) As Double
-    
-Sub Heron()
+Function Area(side As Double, s As Double) As Double
+    Area = Sqr(s * (s-side) * (s-side) * (s-side))
 
+Sub Heron()
+ ' Calculating the Area of Triangle Using the above functions
+ Dim TriSide, TriSemi, TriArea As Double
+ 
+ TriSide = Side(ActiveSheet.Cells(5,4).Value)
+ TriSemi = Semi(TriSide)
+ TriArea = Area(TriSide, TriSemi)
+ 
+ ActiveSheet.Cells(5,7).Value = TriSide
+ ActiveSheet.Cells(5,9).Value = TriArea
+    
 End Sub
