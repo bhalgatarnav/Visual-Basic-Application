@@ -1,12 +1,32 @@
-' Function that calculated the score of the product based on the popularity, profit margin and affordability.
-Function CalculateScore(Popularity As Double, ProfitMargin As Double, Affordability As Double) As Double
-    CalculateScore = 0.4 * Popularity + 0.3 * ProfitMargin + 0.3 * Affordability
-End Function
+    ' Function that calculated the score of the product based on the popularity, profit margin and affordability.
+    Function CalculateScoreArray(Popularity() As Double, ProfitMargin() As Double, Affordability() As Double) As Double
+    ' Calculating the score of the products and then storing it in an array.
+    Dim i As Integer
+    Dim Score(), pop, pro, aff As Double
+    ReDim Score(1 To UBound(Popularity, 1), 1 To 1)
+
+    For i = 1 To 67 Step 1
+        pop = Popularity(i, 1)
+        pro = ProfitMargin(i, 1)
+        aff = Affordability(i, 1)
+        ' There is an type mismatch error in this statement.
+        Score(i, 1) = 0.4 * pop + 0.3 * pro + 0.3 * aff
+    Next 
+
+    CalculateScoreArray = Score
+    End Function
+
+    ' Function that calculated the score of the product based on the popularity, profit margin and affordability.
+    Function CalculateScore(Popularity As Double, ProfitMargin As Double, Affordability As Double) As Double
+        CalculateScore = 0.4 * Popularity + 0.3 * ProfitMargin + 0.3 * Affordability
+    End Function
+    
+
 
 Sub Decision_Matrix()
 'Cleaning the values.
-ActiveSheet.Range("G2:K68").ClearContents
-ActiveSheet.Range("H2:M68").ClearContents
+ActiveSheet.Range("G2:G68").ClearContents
+ActiveSheet.Range("H2:H68").ClearContents
 ActiveSheet.Cells(4,11).ClearContents
 
 ' Removing the colour codes.
@@ -26,24 +46,12 @@ ActiveSheet.Range("H2:H68").Interior.Color = xlNone
         row = row + 1
     Loop
 
- 
-
-' Calculating the score of the products and then storing it in an array.
-    Dim i As Integer
-    Dim Score(), pop, pro, aff As Double
-    ReDim Score(1 To UBound(Popularity, 1), 1 To 1)
-
-    For i = 1 To 67 Step 1
-        pop = Popularity(i, 1)
-        pro = ProfitMargin(i, 1)
-        aff = Affordability(i, 1)
-        ' There is an type mismatch error in this statement.
-        Score(i, 1) = CalculateScore(pop, pro, aff)
-    Next 
+    Dim ArrayResults() As Double
+    ArrayResults = CalculateScoreArray(Popularity(), ProfitMargin(), Affordability())
 
 ' Finding the Median and then marking it 
     Dim Median As Double
-    Median = Application.WorksheetFunction.Median(Scores())
+    Median = Application.WorksheetFunction.Median(ArrayResults)
     ActiveSheet.Cells(4,11).Value = Median
 
     For i = 1 To 67 Step 1
