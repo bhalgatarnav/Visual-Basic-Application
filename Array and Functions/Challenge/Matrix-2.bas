@@ -4,7 +4,7 @@
         
         s = (0.4 * p) + (0.3 * po) + (0.3 * A)
         
-        CalculateScore = s
+        Calculate = s
     End Function
     
     Sub Decision_Matrix()
@@ -37,15 +37,15 @@
             ReDim Preserve Score(0 To row)
             
             Popularity(count) = ActiveSheet.Cells(row, 2).Value
-            ActiveSheet.Cells(row, 12).Value = Popularity(count)
+            'ActiveSheet.Cells(row, 12).Value = Popularity(count)
             ProfitMargin(count) = ActiveSheet.Cells(row, 3).Value
-            ActiveSheet.Cells(row, 13).Value = ProfitMargin(count)
+            'ActiveSheet.Cells(row, 13).Value = ProfitMargin(count)
             Affordability(count) = ActiveSheet.Cells(row, 4).Value
-            ActiveSheet.Cells(row, 14).Value = Affordability(count)
+            'ActiveSheet.Cells(row, 14).Value = Affordability(count)
             
             sc = Calculate(Popularity(count), ProfitMargin(count), Affordability(count))
             Score(count) = sc
-            ActiveSheet.Cells(row, 15).Value = Score(count)
+            ActiveSheet.Cells(row, 15).Value = sc
 
             row = row + 1
             count = count + 1
@@ -60,15 +60,17 @@
         For i = 2 To row Step 1
             ActiveSheet.Cells(i, 7).Value = Score(i - 2)
             If Score(i - 2) < Median Then
-                ActiveSheet.Cells(i + 1, 8).Value = "Retire"
-                ActiveSheet.Cells(i + 1, 8).Interior.Color = RGB(0, 255, 0)
+                ActiveSheet.Cells(i, 8).Value = "Retire"
+                ActiveSheet.Cells(i, 8).Interior.Color = RGB(0, 255, 0)
             Else
-                ActiveSheet.Cells(i + 1, 8).Value = "Keep"
-                ActiveSheet.Cells(i + 1, 8).Interior.Color = RGB(255, 0, 0)
+                ActiveSheet.Cells(i, 8).Value = "Keep"
+                ActiveSheet.Cells(i, 8).Interior.Color = RGB(255, 0, 0)
             End If
         Next
     
     
     End Sub
+
+
 
 
