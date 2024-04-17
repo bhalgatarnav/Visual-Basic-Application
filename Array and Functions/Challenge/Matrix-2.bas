@@ -45,7 +45,7 @@
             
             sc = Calculate(Popularity(count), ProfitMargin(count), Affordability(count))
             Score(count) = sc
-            ActiveSheet.Cells(row, 15).Value = sc
+            ' ActiveSheet.Cells(row, 15).Value = sc
 
             row = row + 1
             count = count + 1
