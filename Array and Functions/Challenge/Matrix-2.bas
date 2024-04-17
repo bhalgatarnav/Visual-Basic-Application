@@ -57,7 +57,7 @@
         Median = Application.WorksheetFunction.Median(Score())
         ActiveSheet.Cells(4, 11).Value = Median
     
-        For i = 2 To row Step 1
+        For i = 2 To row-2 Step 1
             ActiveSheet.Cells(i, 7).Value = Score(i - 2)
             If Score(i - 2) < Median Then
                 ActiveSheet.Cells(i, 8).Value = "Retire"
