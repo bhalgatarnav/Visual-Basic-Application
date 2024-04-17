@@ -61,16 +61,14 @@
             ActiveSheet.Cells(i, 7).Value = Score(i - 2)
             If Score(i - 2) < Median Then
                 ActiveSheet.Cells(i, 8).Value = "Retire"
-                ActiveSheet.Cells(i, 8).Interior.Color = RGB(0, 255, 0)
+                ActiveSheet.Cells(i, 8).Interior.Color = RGB(255, 0, 0)
             Else
                 ActiveSheet.Cells(i, 8).Value = "Keep"
-                ActiveSheet.Cells(i, 8).Interior.Color = RGB(255, 0, 0)
+                ActiveSheet.Cells(i, 8).Interior.Color = RGB(0, 255, 0)
             End If
         Next
     
     
     End Sub
-
-
 
 
